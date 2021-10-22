@@ -2,13 +2,13 @@ expose:
   # Set the way how to expose the service. Set the type as "ingress",
   # "clusterIP", "nodePort" or "loadBalancer" and fill the information
   # in the corresponding section
-  type: ingress
+  type: nodePort
   tls:
     # Enable the tls or not. Note: if the type is "ingress" and the tls
     # is disabled, the port must be included in the command when pull/push
     # images. Refer to https://github.com/goharbor/harbor/issues/5291
     # for the detail.
-    enabled: true
+    enabled: false
     # Fill the name of secret if you want to use your own TLS certificate.
     # The secret contains keys named:
     # "tls.crt" - the certificate (required)
@@ -108,7 +108,7 @@ externalURL: https://core.harbor.domain
 # For storing images and charts, you can also use "azure", "gcs", "s3",
 # "swift" or "oss". Set it in the "imageChartStorage" section
 persistence:
-  enabled: true
+  enabled: false
   # Setting it to "keep" to avoid removing PVCs during a helm delete
   # operation. Leaving it empty will delete PVCs after the chart deleted
   resourcePolicy: "keep"
@@ -402,7 +402,7 @@ registry:
       privateKeySecret: "my-secret"
 
 chartmuseum:
-  enabled: true
+  enabled: false
   # Harbor defaults ChartMuseum to returning relative urls, if you want using absolute url you should enable it by change the following value to 'true'
   absoluteUrl: false
   image:
@@ -448,7 +448,7 @@ clair:
   podAnnotations: {}
 
 notary:
-  enabled: true
+  enabled: false
   server:
     image:
       repository: goharbor/notary-server-photon
