@@ -2,7 +2,7 @@ expose:
   # Set the way how to expose the service. Set the type as "ingress",
   # "clusterIP", "nodePort" or "loadBalancer" and fill the information
   # in the corresponding section
-  type: nodePort
+  type: ingress
   tls:
     # Enable the tls or not. Note: if the type is "ingress" and the tls
     # is disabled, the port must be included in the command when pull/push
@@ -98,7 +98,8 @@ expose:
 # the IP address of k8s node
 #
 # If Harbor is deployed behind the proxy, set it as the URL of proxy
-externalURL: http://10.10.0.161:30002
+externalURL: https://mwlharbordev.midwestlabs.com
+# externalURL: http://10.10.0.161:30002
 
 # The persistence is enabled by default and a default StorageClass
 # is needed in the k8s cluster to provision volumes dynamicly.
